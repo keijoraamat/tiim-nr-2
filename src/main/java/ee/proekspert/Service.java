@@ -1,10 +1,11 @@
 package ee.proekspert;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class Service {
-    private ArrayList<Question> questions = new ArrayList<Question>();
+    private List<Question> questions = new ArrayList<Question>();
 
     public Service() {
         questions.add(new Question(1, "Question 1", "Information About Question 1"));

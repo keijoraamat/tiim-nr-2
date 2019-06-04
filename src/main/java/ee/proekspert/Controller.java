@@ -12,7 +12,7 @@ public class Controller {
 
     @GetMapping("/question/{id}")
     Question question(@PathVariable int id) {
-        if (id > 0 && id < 12) {
+        if (id > 0 && id < 11) {
             return service.getQuestion(id);
         }
         return null;
