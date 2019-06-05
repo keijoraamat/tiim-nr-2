@@ -1,6 +1,6 @@
 package ee.proekspert;
 
-
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -10,7 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class BootcampApplication implements CommandLineRunner {
 
 	@Autowired
-	private CustomerRepository repository;
+	private QuestionRepository repository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(BootcampApplication.class, args);
@@ -20,30 +20,19 @@ public class BootcampApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 
 
-		repository.deleteAll();
+		//repository.deleteAll();
 
 		// save a couple of customers
-		repository.save(new Customer("Alice", "Smith"));
-		repository.save(new Customer("Bob", "Smith"));
+		//repository.save(new Questions( "Question 1", "Correcr Answer 1", "Wrong 1.1", "Wrong 1.2", "Wrong 1.3", "Lorem Ipsum 1"));
+		//repository.save(new Questions( "Question 2", "Correcr Answer 2", "Wrong 2.1", "Wrong 2.2", "Wrong 2.3", "Lorem Ipsum 1"));
 
-		// fetch all customers
-		System.out.println("Customers found with findAll():");
-		System.out.println("-------------------------------");
-		for (Customer customer : repository.findAll()) {
-			System.out.println(customer);
+		for (Questions questions : repository.findAll()) {
+			System.out.println(questions);
 		}
 		System.out.println();
 
-		// fetch an individual customer
-		System.out.println("Customer found with findByFirstName('Alice'):");
-		System.out.println("--------------------------------");
-		System.out.println(repository.findByFirstName("Alice"));
+		System.out.println(repository.findById(new ObjectId("5cf76e39711bb23fc84b9bcd")));
 
-		System.out.println("Customers found with findByLastName('Smith'):");
-		System.out.println("--------------------------------");
-		for (Customer customer : repository.findByLastName("Smith")) {
-			System.out.println(customer);
-		}
 	}
 
 }
