@@ -1,7 +1,8 @@
 package ee.proekspert;
 
+import ee.proekspert.Domain.Questions;
+import ee.proekspert.Repository.QuestionRepository;
 import org.bson.types.ObjectId;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,8 +10,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class BootcampApplication implements CommandLineRunner {
 
-	@Autowired
-	private QuestionRepository repository;
+
+	private final QuestionRepository repository;
+
+	BootcampApplication(QuestionRepository repository){
+		this.repository = repository;
+	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(BootcampApplication.class, args);
@@ -31,7 +36,7 @@ public class BootcampApplication implements CommandLineRunner {
 		}
 		System.out.println();
 
-		System.out.println(repository.findById(new ObjectId("5cf76e39711bb23fc84b9bcd")));
+		System.out.println(repository.findById(new ObjectId("5cf76e67711bb23ca4268623")));
 
 	}
 
