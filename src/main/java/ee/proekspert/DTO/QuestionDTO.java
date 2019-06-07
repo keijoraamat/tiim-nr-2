@@ -1,16 +1,17 @@
 package ee.proekspert.DTO;
 
-import java.io.Serializable;
+import org.bson.types.ObjectId;
 import java.util.ArrayList;
 import java.util.List;
 
-public class QuestionDto implements Serializable {
-    private static final long serialVersionUID = 4865903039190150346L;
+public class QuestionDTO {
+
     private String id;
-    //private String questionId;
+
     private String questionText;
-    private String correctAnswer;
+
     private List<String> allAnswers = new ArrayList<>();
+
     private String informationText;
 
     public String getId() {
@@ -21,21 +22,12 @@ public class QuestionDto implements Serializable {
         this.id = id;
     }
 
-
     public String getQuestionText() {
         return questionText;
     }
 
     public void setQuestionText(String questionText) {
         this.questionText = questionText;
-    }
-
-    public String getCorrectAnswer() {
-        return correctAnswer;
-    }
-
-    public void setCorrectAnswer(String correctAnswer) {
-        this.correctAnswer = correctAnswer;
     }
 
     public List<String> getAllAnswers() {

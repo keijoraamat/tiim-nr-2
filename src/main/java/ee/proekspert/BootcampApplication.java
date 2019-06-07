@@ -1,8 +1,9 @@
 package ee.proekspert;
 
-import ee.proekspert.Domain.Questions;
+import ee.proekspert.Domain.GameEntity;
+import ee.proekspert.Domain.QuestionEntity;
+import ee.proekspert.Repository.GameRepository;
 import ee.proekspert.Repository.QuestionRepository;
-import org.bson.types.ObjectId;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,9 +13,11 @@ public class BootcampApplication implements CommandLineRunner {
 
 
 	private final QuestionRepository repository;
+	private final GameRepository gameRepository;
 
-	BootcampApplication(QuestionRepository repository){
+	BootcampApplication(QuestionRepository repository, GameRepository gameRepository){
 		this.repository = repository;
+		this.gameRepository = gameRepository;
 	}
 
 	public static void main(String[] args) {
@@ -27,16 +30,16 @@ public class BootcampApplication implements CommandLineRunner {
 
 		//repository.deleteAll();
 
-		// save a couple of customers
-		//repository.save(new Questions( "Question 1", "Correcr Answer 1", "Wrong 1.1", "Wrong 1.2", "Wrong 1.3", "Lorem Ipsum 1"));
-		//repository.save(new Questions( "Question 2", "Correcr Answer 2", "Wrong 2.1", "Wrong 2.2", "Wrong 2.3", "Lorem Ipsum 1"));
-
-		for (Questions questions : repository.findAll()) {
+		// save a couple of Answers
+		//repository.save(new QuestionEntity( "Question 1", "Correct Answer 1", "Answer 1.1", "Answer 1.2", "Answer 1.3", "Correct Answer 1", "Lorem Ipsum 1"));
+		//repository.save(new QuestionEntity( "Question 2", "Correct Answer 2", "Answer 2.1", "Correct Answer 2", "Answer 2.3", "Answer 2.4", "Lorem Ipsum 1"));
+		gameRepository.save(new GameEntity());
+		for (QuestionEntity questions : repository.findAll()) {
 			System.out.println(questions);
 		}
 		System.out.println();
 
-		System.out.println(repository.findById(new ObjectId("5cf76e67711bb23ca4268623")));
+		System.out.println(repository.findById("5cf76e67711bb23ca4268623"));
 
 	}
 

@@ -1,35 +1,33 @@
 package ee.proekspert.Domain;
 
-import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class Questions {
+public class QuestionEntity {
 
     @Id
-    private ObjectId id;
-
+    private String id;
     private String questionText;
     private String correctAnswer;
     private List<String> allAnswers = new ArrayList<>();
     private String informationText;
 
-    public Questions() {}
+    public QuestionEntity() {}
 
-    public Questions( String questionText, String correctAnswer, String wrongAnswer1, String wrongAnswer2, String wrongAnswer3, String informationText) {
+    public QuestionEntity(String questionText, String correctAnswer, String Answer1, String Answer2, String Answer3, String Answer4, String informationText) {
         this.questionText = questionText;
         this.correctAnswer = correctAnswer;
-        this.allAnswers.add(wrongAnswer1);
-        this.allAnswers.add(wrongAnswer2);
-        this.allAnswers.add(wrongAnswer3);
-        this.allAnswers.add(correctAnswer);
+        this.allAnswers.add(Answer1);
+        this.allAnswers.add(Answer2);
+        this.allAnswers.add(Answer3);
+        this.allAnswers.add(Answer4);
         this.informationText = informationText;
     }
 
-    public ObjectId getId() {
+    public String getId() {
         return id;
     }
 
@@ -51,8 +49,8 @@ public class Questions {
         return allAnswers;
     }
 
-    public void setWrongAnswers(List<String> wrongAnswers) {
-        this.allAnswers = wrongAnswers;
+    public void setWrongAnswers(List<String> Allanswers) {
+        this.allAnswers = Allanswers;
     }
 
     public String getInformationText() {
@@ -66,7 +64,7 @@ public class Questions {
     @Override
     public String toString() {
         return String.format(
-                "Questions[id=%s, questionText='%s', correctAnswer='%s']",
+                "QuestionEntity[id=%s, questionText='%s', correctAnswer='%s']",
                 id, questionText, correctAnswer);
     }
 

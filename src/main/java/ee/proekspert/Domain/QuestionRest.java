@@ -14,20 +14,13 @@ public class QuestionRest {
     public String getId() {
         return id;
     }
-
-
     public String getQuestionText() {
         return questionText;
     }
-
-
     public List<String> getAllAnswers() {
         return allAnswers;
     }
-
-
     public String getInformationText() {
         return informationText;
     }
-
 }
