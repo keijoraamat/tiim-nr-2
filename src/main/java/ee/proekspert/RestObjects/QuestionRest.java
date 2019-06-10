@@ -1,4 +1,4 @@
-package ee.proekspert.Domain;
+package ee.proekspert.RestObjects;
 
 
 import java.util.ArrayList;

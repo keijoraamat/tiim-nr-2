@@ -10,6 +10,7 @@ public class QuestionEntity {
 
     @Id
     private String id;
+    private String questionNumber;
     private String questionText;
     private String correctAnswer;
     private List<String> allAnswers = new ArrayList<>();
@@ -17,7 +18,8 @@ public class QuestionEntity {
 
     public QuestionEntity() {}
 
-    public QuestionEntity(String questionText, String correctAnswer, String Answer1, String Answer2, String Answer3, String Answer4, String informationText) {
+    public QuestionEntity(String questionNumber,String questionText, String correctAnswer, String Answer1, String Answer2, String Answer3, String Answer4, String informationText) {
+        this.questionNumber = questionNumber;
         this.questionText = questionText;
         this.correctAnswer = correctAnswer;
         this.allAnswers.add(Answer1);
@@ -44,6 +46,23 @@ public class QuestionEntity {
         return correctAnswer;
     }
 
+
+    public String getQuestionNumber() {
+        return questionNumber;
+    }
+
+    public void setQuestionNumber(String questionNumber) {
+        this.questionNumber = questionNumber;
+    }
+
+
+    public List<String> getAllAnswers() {
+        return allAnswers;
+    }
+
+    public void setAllAnswers(List<String> allAnswers) {
+        this.allAnswers = allAnswers;
+    }
 
     public List<String> getWrongAnswers() {
         return allAnswers;

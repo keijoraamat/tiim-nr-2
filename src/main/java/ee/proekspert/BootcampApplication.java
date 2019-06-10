@@ -13,11 +13,9 @@ public class BootcampApplication implements CommandLineRunner {
 
 
 	private final QuestionRepository repository;
-	private final GameRepository gameRepository;
 
 	BootcampApplication(QuestionRepository repository, GameRepository gameRepository){
 		this.repository = repository;
-		this.gameRepository = gameRepository;
 	}
 
 	public static void main(String[] args) {
@@ -31,9 +29,9 @@ public class BootcampApplication implements CommandLineRunner {
 		//repository.deleteAll();
 
 		// save a couple of Answers
-		//repository.save(new QuestionEntity( "Question 1", "Correct Answer 1", "Answer 1.1", "Answer 1.2", "Answer 1.3", "Correct Answer 1", "Lorem Ipsum 1"));
-		//repository.save(new QuestionEntity( "Question 2", "Correct Answer 2", "Answer 2.1", "Correct Answer 2", "Answer 2.3", "Answer 2.4", "Lorem Ipsum 1"));
-		gameRepository.save(new GameEntity());
+		//repository.save(new QuestionEntity( "1","Question 1", "Correct Answer 1", "Answer 1.1", "Answer 1.2", "Answer 1.3", "Correct Answer 1", "Lorem Ipsum 1"));
+		//repository.save(new QuestionEntity( "2","Question 2", "Correct Answer 2", "Answer 2.1", "Correct Answer 2", "Answer 2.3", "Answer 2.4", "Lorem Ipsum 1"));
+		//gameRepository.save(new GameEntity());
 		for (QuestionEntity questions : repository.findAll()) {
 			System.out.println(questions);
 		}

@@ -1,12 +1,11 @@
 package ee.proekspert.DTO;
 
-import org.bson.types.ObjectId;
 import java.util.ArrayList;
 import java.util.List;
 
 public class QuestionDTO {
 
-    private String id;
+    private String questionNumber;
 
     private String questionText;
 
@@ -14,12 +13,12 @@ public class QuestionDTO {
 
     private String informationText;
 
-    public String getId() {
-        return id;
+    public String getQuestionNumber() {
+        return questionNumber;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setQuestionNumber(String questionNumber) {
+        this.questionNumber = questionNumber;
     }
 
     public String getQuestionText() {

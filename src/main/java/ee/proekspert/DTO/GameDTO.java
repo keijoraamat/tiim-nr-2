@@ -1,6 +1,6 @@
-package ee.proekspert.Domain;
+package ee.proekspert.DTO;
 
-public class QuizGame {
+public class GameDTO {
     private String gameId;
     private String previousQuestionId;
     private int previousQuestion;
