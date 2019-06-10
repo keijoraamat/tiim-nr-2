@@ -1,12 +1,11 @@
 package ee.proekspert.Controller;
 
-import ee.proekspert.DTO.QuestionDTO;
+import ee.proekspert.DTO.QuestionCreateDTO;
+import ee.proekspert.DTO.QuestionSendDTO;
 import ee.proekspert.DTO.TestDTO;
 import ee.proekspert.Domain.QuestionEntity;
 import ee.proekspert.DTO.GameDTO;
 import ee.proekspert.Domain.TestEntity;
-import ee.proekspert.Repository.QuestionRepository;
-import ee.proekspert.Service.Implementation.QuestionServiceImplementation;
 import ee.proekspert.Service.QuestionService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.web.bind.annotation.*;
@@ -25,18 +24,21 @@ public class AnswerController {
         this.questionService = questionService;
     }
 
-    @GetMapping("/allquestions")
+    @GetMapping("/all_questions")
     public List<QuestionEntity> getAllQuestions() {
         return questionService.getAllQuestions();
     }
 
-    @PostMapping("/newgame")
-    public QuestionDTO createNewGame(@RequestBody String newGame) {
+    @PostMapping("/create_question")
+    public String createNewQuestion(@RequestBody QuestionCreateDTO newQuestion){
+        return questionService.createQuestion(newQuestion);
+    }
+    @PostMapping("/new_game")
+    public QuestionSendDTO createNewGame(@RequestBody String newGame) {
         if (!newGame.isEmpty() && newGame.equals("Start Game")){
-            return questionService.sendQuestionInBeginningOfGame();
+            return questionService.startNewGameAndSendFirstQuestion();
         }
         else return null;
-
     }
 
     @PostMapping("/nextquestion")

@@ -3,15 +3,19 @@ package ee.proekspert.DTO;
 import java.util.ArrayList;
 import java.util.List;
 
-public class QuestionDTO {
-
+public class QuestionSendDTO {
+    private String gameId;
     private String questionNumber;
-
     private String questionText;
-
     private List<String> allAnswers = new ArrayList<>();
 
-    private String informationText;
+    public String getGameId() {
+        return gameId;
+    }
+
+    public void setGameId(String gameId) {
+        this.gameId = gameId;
+    }
 
     public String getQuestionNumber() {
         return questionNumber;
@@ -35,13 +39,5 @@ public class QuestionDTO {
 
     public void setAllAnswers(List<String> allAnswers) {
         this.allAnswers = allAnswers;
-    }
-
-    public String getInformationText() {
-        return informationText;
-    }
-
-    public void setInformationText(String informationText) {
-        this.informationText = informationText;
     }
 }

@@ -1,6 +1,7 @@
 package ee.proekspert.Service.Implementation;
 
-import ee.proekspert.DTO.QuestionDTO;
+import ee.proekspert.DTO.QuestionCreateDTO;
+import ee.proekspert.DTO.QuestionSendDTO;
 import ee.proekspert.Domain.GameEntity;
 import ee.proekspert.Domain.QuestionEntity;
 import ee.proekspert.Repository.GameRepository;
@@ -22,8 +23,11 @@ public class QuestionServiceImplementation implements QuestionService {
     }
 
     @Override
-    public QuestionDTO createQuestion(QuestionDTO question) {
-        return null;
+    public String createQuestion(QuestionCreateDTO question) {
+        QuestionEntity newQuestion = new QuestionEntity();
+        BeanUtils.copyProperties(question, newQuestion);
+        repository.save(newQuestion);
+        return "New Question Created!";
     }
 
     @Override
@@ -39,12 +43,14 @@ public class QuestionServiceImplementation implements QuestionService {
     }
 
     @Override
-    public QuestionDTO sendQuestionInBeginningOfGame() {
+    public QuestionSendDTO startNewGameAndSendFirstQuestion() {
+        GameEntity newGame = new GameEntity();
+        gameRepository.save(newGame);
         QuestionEntity question = repository.findByQuestionNumber("1");
-        QuestionDTO questionDTO = new QuestionDTO();
+        QuestionSendDTO questionDTO = new QuestionSendDTO();
         BeanUtils.copyProperties(question, questionDTO);
+        questionDTO.setGameId(newGame.getId());
         return questionDTO;
-
     }
 
 

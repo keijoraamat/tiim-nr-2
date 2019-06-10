@@ -1,6 +1,5 @@
 package ee.proekspert;
 
-import ee.proekspert.Domain.GameEntity;
 import ee.proekspert.Domain.QuestionEntity;
 import ee.proekspert.Repository.GameRepository;
 import ee.proekspert.Repository.QuestionRepository;
@@ -14,7 +13,7 @@ public class BootcampApplication implements CommandLineRunner {
 
 	private final QuestionRepository repository;
 
-	BootcampApplication(QuestionRepository repository, GameRepository gameRepository){
+	BootcampApplication(QuestionRepository repository){
 		this.repository = repository;
 	}
 

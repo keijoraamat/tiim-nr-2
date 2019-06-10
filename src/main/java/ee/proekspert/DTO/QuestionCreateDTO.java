@@ -1,38 +1,15 @@
-package ee.proekspert.Domain;
-
-import org.springframework.data.annotation.Id;
+package ee.proekspert.DTO;
 
 import java.util.ArrayList;
 import java.util.List;
 
+public class QuestionCreateDTO {
 
-public class QuestionEntity {
-
-    @Id
-    private String id;
     private String questionNumber;
     private String questionText;
     private String correctAnswer;
     private List<String> allAnswers = new ArrayList<>();
     private String informationText;
-
-    public QuestionEntity() {}
-
-    public QuestionEntity(String questionNumber,String questionText, String correctAnswer, String Answer1, String Answer2, String Answer3, String Answer4, String informationText) {
-        this.questionNumber = questionNumber;
-        this.questionText = questionText;
-        this.correctAnswer = correctAnswer;
-        this.allAnswers.add(Answer1);
-        this.allAnswers.add(Answer2);
-        this.allAnswers.add(Answer3);
-        this.allAnswers.add(Answer4);
-        this.informationText = informationText;
-    }
-
-    public String getId() {
-        return id;
-    }
-
 
     public String getQuestionText() {
         return questionText;
@@ -64,6 +41,14 @@ public class QuestionEntity {
         this.allAnswers = allAnswers;
     }
 
+    public List<String> getWrongAnswers() {
+        return allAnswers;
+    }
+
+    public void setWrongAnswers(List<String> Allanswers) {
+        this.allAnswers = Allanswers;
+    }
+
     public String getInformationText() {
         return informationText;
     }
@@ -72,11 +57,7 @@ public class QuestionEntity {
         this.informationText = informationText;
     }
 
-    @Override
-    public String toString() {
-        return String.format(
-                "QuestionEntity[id=%s, questionText='%s', correctAnswer='%s']",
-                id, questionText, correctAnswer);
+    public void setCorrectAnswer(String correctAnswer) {
+        this.correctAnswer = correctAnswer;
     }
-
 }

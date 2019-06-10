@@ -1,13 +1,13 @@
 package ee.proekspert.Service;
 
-import ee.proekspert.DTO.QuestionDTO;
+import ee.proekspert.DTO.QuestionCreateDTO;
+import ee.proekspert.DTO.QuestionSendDTO;
 import ee.proekspert.Domain.QuestionEntity;
 
 import java.util.List;
 
 public interface QuestionService {
-    QuestionDTO createQuestion(QuestionDTO question);
+   String createQuestion(QuestionCreateDTO question);
     List<QuestionEntity> getAllQuestions();
-    String createNewGame();
-    QuestionDTO sendQuestionInBeginningOfGame();
+    QuestionSendDTO startNewGameAndSendFirstQuestion();
 }
