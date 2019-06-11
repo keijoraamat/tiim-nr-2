@@ -1,12 +1,10 @@
 package ee.proekspert.DTO;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class QuestionSendDTO {
+public class QuestionUpdateDTO {
     private String gameId;
     private String questionNumber;
-    private List<String> allAnswers = new ArrayList<>();
+    private String answer;
+
 
     public String getGameId() {
         return gameId;
@@ -24,11 +22,11 @@ public class QuestionSendDTO {
         this.questionNumber = questionNumber;
     }
 
-    public List<String> getAllAnswers() {
-        return allAnswers;
+    public String getAnswer() {
+        return answer;
     }
 
-    public void setAllAnswers(List<String> allAnswers) {
-        this.allAnswers = allAnswers;
+    public void setAnswer(String answer) {
+        this.answer = answer;
     }
 }

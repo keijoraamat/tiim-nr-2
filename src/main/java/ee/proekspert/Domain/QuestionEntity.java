@@ -55,6 +55,9 @@ public class QuestionEntity {
         this.questionNumber = questionNumber;
     }
 
+    public void setCorrectAnswer(String correctAnswer) {
+        this.correctAnswer = correctAnswer;
+    }
 
     public List<String> getAllAnswers() {
         return allAnswers;

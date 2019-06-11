@@ -2,6 +2,8 @@ package ee.proekspert.Domain;
 
 import org.springframework.data.annotation.Id;
 
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class GameEntity {
@@ -10,13 +12,21 @@ public class GameEntity {
     private String id;
     private Boolean finished;
     private int questionsAnswered;
+    private Map<String, Boolean> questionDictionary = new HashMap<>();
     private int questionsAnsweredCorrect;
 
     public GameEntity() {
         this.finished = false;
-        this.questionsAnswered = 0;
         this.questionsAnsweredCorrect=0;
 
+    }
+
+    public Map<String, Boolean> getQuestionDictionary() {
+        return questionDictionary;
+    }
+
+    public void setQuestionDictionary(Map<String, Boolean> questionDictionary) {
+        this.questionDictionary = questionDictionary;
     }
 
     public String getId() {

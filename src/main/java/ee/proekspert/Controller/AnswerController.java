@@ -1,13 +1,8 @@
 package ee.proekspert.Controller;
 
-import ee.proekspert.DTO.QuestionCreateDTO;
-import ee.proekspert.DTO.QuestionSendDTO;
-import ee.proekspert.DTO.TestDTO;
+import ee.proekspert.DTO.*;
 import ee.proekspert.Domain.QuestionEntity;
-import ee.proekspert.DTO.GameDTO;
-import ee.proekspert.Domain.TestEntity;
 import ee.proekspert.Service.QuestionService;
-import org.springframework.beans.BeanUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,12 +21,12 @@ public class AnswerController {
 
     @GetMapping("/all_questions")
     public List<QuestionEntity> getAllQuestions() {
-        return questionService.getAllQuestions();
+        return questionService.getAllQuestionsFromDatabase();
     }
 
     @PostMapping("/create_question")
     public String createNewQuestion(@RequestBody QuestionCreateDTO newQuestion){
-        return questionService.createQuestion(newQuestion);
+        return questionService.addNewQuestionToDatabase(newQuestion);
     }
     @PostMapping("/new_game")
     public QuestionSendDTO createNewGame(@RequestBody String newGame) {
@@ -41,19 +36,16 @@ public class AnswerController {
         else return null;
     }
 
-    @PostMapping("/nextquestion")
-    public String createQuestion(@RequestBody GameDTO continueGame) {
-        return "Hello";
+    @PostMapping("/next_question")
+    public QuestionSendDTO sendNewQuestion(@RequestBody QuestionNextDTO nextQuestion) {
+        return questionService.sendNextQuestion(nextQuestion);
 
     }
 
-    @PostMapping("/test")
-    public TestEntity createTest(@RequestBody TestDTO testInfo) {
-        TestEntity testEntity = new TestEntity();
-        BeanUtils.copyProperties(testInfo,testEntity);
-        testEntity.setText("Hahaha");
+    @PostMapping("/answer_question")
+    public String addAnswerToGameRepository(@RequestBody QuestionUpdateDTO questionUpdateDTO) {
+        return questionService.updateQuestionDictionary(questionUpdateDTO);
 
-        return testEntity;
     }
 
 
