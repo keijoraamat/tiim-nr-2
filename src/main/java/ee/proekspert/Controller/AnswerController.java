@@ -28,7 +28,7 @@ public class AnswerController {
     @PostMapping("/new_game")
     public QuestionSendDTO createNewGame(@RequestBody String newGame) {
         if (!newGame.isEmpty() && newGame.equals("Start Game")){
-            return questionService.startNewGameAndSendFirstQuestion();
+            return questionService.sendFirstQuestion();
         }
         else return null;
     }

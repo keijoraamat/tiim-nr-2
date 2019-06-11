@@ -10,6 +10,6 @@ import java.util.List;
 public interface QuestionService {
 
     List<QuestionEntity> getAllQuestionsFromDatabase();
-    QuestionSendDTO startNewGameAndSendFirstQuestion();
+    QuestionSendDTO sendFirstQuestion();
     QuestionSendDTO sendNextQuestion(QuestionNextDTO questionNumber);
 }

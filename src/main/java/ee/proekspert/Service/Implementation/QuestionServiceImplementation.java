@@ -2,7 +2,6 @@ package ee.proekspert.Service.Implementation;
 
 import ee.proekspert.DTO.QuestionNextDTO;
 import ee.proekspert.DTO.QuestionSendDTO;
-import ee.proekspert.Domain.GameEntity;
 import ee.proekspert.Domain.QuestionEntity;
 import ee.proekspert.Repository.QuestionRepository;
 import ee.proekspert.Service.QuestionService;
@@ -26,12 +25,12 @@ public class QuestionServiceImplementation implements QuestionService {
 
 
     @Override
-    public QuestionSendDTO startNewGameAndSendFirstQuestion() {
-        GameEntity newGame = new GameEntity();
+    public QuestionSendDTO sendFirstQuestion() {
         QuestionEntity question = repository.findByQuestionNumber("1");
         QuestionSendDTO questionDTO = new QuestionSendDTO();
+        // TODO
+        // copy properties manually
         BeanUtils.copyProperties(question, questionDTO);
-        questionDTO.setGameId(newGame.getId());
         return questionDTO;
     }
 
