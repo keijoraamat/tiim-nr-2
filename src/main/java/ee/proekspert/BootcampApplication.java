@@ -22,7 +22,7 @@ public class BootcampApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-
+		repository.save(new QuestionEntity());
 		for (QuestionEntity questions : repository.findAll()) {
 			System.out.println(questions);
 		}

@@ -25,12 +25,12 @@ public class QuestionServiceImplementation implements QuestionService {
 
     @Override
     public QuestionSendDTO sendFirstQuestion() {
-        QuestionEntity question = repository.findByQuestionNumber("1");
-        QuestionSendDTO questionDTO = new QuestionSendDTO();
+        /*QuestionSendDTO questionDTO = new QuestionSendDTO();
         // TODO
         // copy properties manually
         BeanUtils.copyProperties(question, questionDTO);
-        return questionDTO;
+        return questionDTO;*/
+        return null;
     }
 
 
