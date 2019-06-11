@@ -39,12 +39,6 @@ public class AnswerController {
 
     }
 
-    @PostMapping("/answer_question")
-    public String addAnswerToGameRepository(@RequestBody QuestionUpdateDTO questionUpdateDTO) {
-        return questionService.updateQuestionDictionary(questionUpdateDTO);
-
-    }
-
 
 
 }

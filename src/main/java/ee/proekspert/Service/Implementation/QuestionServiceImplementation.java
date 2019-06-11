@@ -2,7 +2,6 @@ package ee.proekspert.Service.Implementation;
 
 import ee.proekspert.DTO.QuestionNextDTO;
 import ee.proekspert.DTO.QuestionSendDTO;
-import ee.proekspert.DTO.QuestionUpdateDTO;
 import ee.proekspert.Domain.GameEntity;
 import ee.proekspert.Domain.QuestionEntity;
 import ee.proekspert.Repository.GameRepository;
@@ -39,21 +38,6 @@ public class QuestionServiceImplementation implements QuestionService {
         BeanUtils.copyProperties(question, questionDTO);
         questionDTO.setGameId(newGame.getId());
         return questionDTO;
-    }
-
-    @Override
-    public String updateQuestionDictionary(QuestionUpdateDTO questionUpdateDTO) {
-        QuestionEntity question = repository.findByQuestionNumber(questionUpdateDTO.getQuestionNumber());
-        Optional<GameEntity> game = gameRepository.findById(questionUpdateDTO.getGameId());
-        if (question.getCorrectAnswer().equals(questionUpdateDTO.getAnswer())){
-            game.ifPresent(gameEntity -> gameEntity.getQuestionDictionary().put(questionUpdateDTO.getQuestionNumber(), true));
-            gameRepository.save(game.get());
-        }else {
-            game.ifPresent(gameEntity -> gameEntity.getQuestionDictionary().replace(questionUpdateDTO.getQuestionNumber(), false));
-            gameRepository.save(game.get());
-        }
-        return "Question " + questionUpdateDTO.getQuestionNumber() + " updated.";
-
     }
 
     @Override
