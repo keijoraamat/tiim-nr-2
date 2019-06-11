@@ -19,6 +19,9 @@ public class QuestionEntity {
     private String informationText;
 
     public QuestionEntity() {
+        this.id = "1";
+        this.questionText = "fjdklsfjsl";
+        this.correctAnswer = "fdlögjöööööö";
         this.allAnswers.add(new AnswerEntity("1", "Text1"));
         this.allAnswers.add(new AnswerEntity("2", "Text2"));
         this.allAnswers.add(new AnswerEntity("3", "Text3"));
