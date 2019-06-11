@@ -24,10 +24,7 @@ public class AnswerController {
         return questionService.getAllQuestionsFromDatabase();
     }
 
-    @PostMapping("/create_question")
-    public String createNewQuestion(@RequestBody QuestionCreateDTO newQuestion){
-        return questionService.addNewQuestionToDatabase(newQuestion);
-    }
+
     @PostMapping("/new_game")
     public QuestionSendDTO createNewGame(@RequestBody String newGame) {
         if (!newGame.isEmpty() && newGame.equals("Start Game")){

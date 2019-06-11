@@ -18,9 +18,6 @@ public class QuestionUpdateDTO {
         return questionNumber;
     }
 
-    public void setQuestionNumber(String questionNumber) {
-        this.questionNumber = questionNumber;
-    }
 
     public String getAnswer() {
         return answer;

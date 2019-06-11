@@ -1,5 +1,6 @@
 package ee.proekspert.Domain;
 
+
 import org.springframework.data.annotation.Id;
 
 import java.util.HashMap;
@@ -7,6 +8,7 @@ import java.util.Map;
 
 
 public class GameEntity {
+
 
     @Id
     private String id;

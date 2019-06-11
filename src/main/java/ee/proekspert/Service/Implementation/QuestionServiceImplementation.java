@@ -1,6 +1,5 @@
 package ee.proekspert.Service.Implementation;
 
-import ee.proekspert.DTO.QuestionCreateDTO;
 import ee.proekspert.DTO.QuestionNextDTO;
 import ee.proekspert.DTO.QuestionSendDTO;
 import ee.proekspert.DTO.QuestionUpdateDTO;
@@ -23,14 +22,6 @@ public class QuestionServiceImplementation implements QuestionService {
     public QuestionServiceImplementation(QuestionRepository repository, GameRepository gameRepository) {
         this.repository = repository;
         this.gameRepository = gameRepository;
-    }
-
-    @Override
-    public String addNewQuestionToDatabase(QuestionCreateDTO question) {
-        QuestionEntity newQuestion = new QuestionEntity();
-        BeanUtils.copyProperties(question, newQuestion);
-        repository.save(newQuestion);
-        return "New Question Created!";
     }
 
     @Override
