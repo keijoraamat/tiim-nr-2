@@ -1,3 +1,10 @@
 language: java
-before_script:
+jdk: openjdk12
+
+sudo: required
+
+before_install:
   - chmod +x gradlew
+
+script:
+  - ./gradlew clean build -i --continuehmod +x gradlew
