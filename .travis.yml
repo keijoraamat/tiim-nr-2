@@ -7,4 +7,4 @@ before_install:
   - chmod +x gradlew
 
 script:
-  - ./gradlew clean build -i --continuehmod +x gradlew
+  - ./gradlew clean build -i --continue
