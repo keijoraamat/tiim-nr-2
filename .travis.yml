@@ -1,2 +1,5 @@
 language: java
 gradle/
+sudo: required
+before_install:
+  - chmod -x gradlew
