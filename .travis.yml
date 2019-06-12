@@ -1,2 +1,4 @@
 language: java
 jdk: openjdk12
+script:
+  - ./gradlew clean build -i --continue
