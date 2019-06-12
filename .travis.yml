@@ -1,7 +1,8 @@
 language: java
 jdk: openjdk11
-
+services: mongodb
 sudo: required
 
 before_install:
   - chmod +x gradlew
+  - ./gradlew check
