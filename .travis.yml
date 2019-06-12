@@ -1,6 +1,6 @@
 language: java
 jdk: openjdk12
-
+services: mongodb
 sudo: required
 
 before_install:
